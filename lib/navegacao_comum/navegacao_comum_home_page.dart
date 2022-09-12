@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_rotas/navegacao_comum/back/back_home_page.dart';
 import 'package:get_rotas/navegacao_comum/off/off_home_page.dart';
+import 'package:get_rotas/navegacao_comum/offAll/off_all_home_page.dart';
 import 'package:get_rotas/navegacao_comum/to/to_home_page.dart';
 
 class NavegacaoComumHomePage extends StatelessWidget {
@@ -33,7 +34,13 @@ class NavegacaoComumHomePage extends StatelessWidget {
               onPressed: () {
                 Get.to(()=> const OffHomePage());
               },
-              child: const Text('Off (****)'),
+              child: const Text('Off (Replacement)'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Get.to(()=> const OffAllHomePage());
+              },
+              child: const Text('Off (PopAndRemoveUntil)'),
             ),
           ],
         ),
