@@ -1,43 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_rotas/navegacao_comum/send_params/send_params_page1.dart';
+import 'package:get_rotas/navegacao_comum/await_params/await_params_page1.dart';
 
-class SendParamsHomePage extends StatelessWidget {
-  const SendParamsHomePage({Key? key}) : super(key: key);
+class AwaitParamsHomePage extends StatelessWidget {
+  const AwaitParamsHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(''),
+        title: const Text('Await Params - Home Page'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(
-              onPressed: () {
-                Navigator.of(context).push(
+              onPressed: () async {
+                final result = await Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) {
-                      return const SendParamsPage1();
+                      return const AwaitParamsPage1();
                     },
-                    settings: const RouteSettings(arguments: 'Parametro pelo Flutter Nativo')
                   ),
                 );
+                debugPrint(result);
               },
               child: const Text('Go to Page com Flutter Nativo'),
             ),
             TextButton(
-              onPressed: () {
-                Get.to(()=> const SendParamsPage1(), arguments: 'Parametro pelo GetX');
+              onPressed: () async {
+                final result = await Get.to(()=> const AwaitParamsPage1());
+                debugPrint(result);
               },
               child: const Text('Go to Page com GetX'),
             ),
           ],
         ),
       )
-      ,
+
     );
   }
 }
